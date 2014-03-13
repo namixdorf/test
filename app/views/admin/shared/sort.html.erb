@@ -1,0 +1,3 @@
+<ul class="items-list sortable-list" data-role="listview" data-url="<%= url_for([:apply_sort, :admin, @klass.to_s.pluralize.underscore]) -%>">
+  <%= render :partial => 'sort_item_li', :collection => @items %>
+</ul>

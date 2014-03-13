@@ -1,0 +1,63 @@
+<%= render 'layouts/eight_nav' %>
+
+<div id="breadcrumb" class="<%= @article.category.short_name.downcase %>">
+  <%= link_to "Home", "/categories.html", class: "crumb" %> / <%= link_to @article.category.full_name, "/#{@article.category.short_name.downcase}/index.html", class: "crumb" %> / <span id="current_page" class="<%= @article.category.short_name.downcase %>"><%= @article.title %></span>
+</div>
+<div id="main_article" class="clearfix <%= @article.category.short_name.downcase %>">
+  <div id="article_header_image">
+    <%= image_tag "#{@article.image.url}", id: "feature_image" %>
+    <%= image_tag "#{@article.category.short_name.downcase}_marker.png", id: "marker_image" %>
+    <div id="header_text" class="<%= @article.category.short_name.downcase %>">
+      <h2><%= @article.title %></h2>
+      <h4><%= @article.headline.truncate(120) %></h4>
+    </div>
+  </div>
+  <div id="content" class="clearfix">
+		<hr class="vertical" />
+		<div id="article_section">
+			<%= @article.body.html_safe %>
+			<%= @article.body_2.html_safe if @article.body_2 %>
+
+			<div class="centered article_buttons">
+				<%= link_to(image_tag("learn_more_here.png"), "/finding.html##{@article.category.tab_name}") %>
+			</div>
+			<div id="helpful" class="centered article_buttons">
+				<div id="left_help" class="<%= @article.category.short_name.downcase %>">
+					Was this helpful?
+				</div>
+				<div id="pd_rating_holder_7083475"></div>
+				<script type="text/javascript">
+				var windowLocation = window.location.pathname,
+						article_title = document.getElementsByTagName('h2')[0].innerHTML;
+						permalink = document.location.href;
+				PDRTJS_settings_7083475 = {
+				"id" : "7083475",
+				"unique_id" : windowLocation,
+				"title" : article_title,
+				"permalink" : permalink
+				};
+				</script>
+				<script type="text/javascript" src="http://i0.poll.fm/js/rating/rating.js"></script>
+		  </div>
+		</div>
+		<div id="support_section" class="centered">
+			<% @article.videos.each do |video| %>
+				<%= link_to image_tag(video.image, class: 'video_image'), "##{video.hashcode}", class: "lightboxed-video" %>
+			<% end %>
+	      <blockquote class="<%= @article.category.short_name.downcase %>">
+	        &ldquo;<%= @article.quote.text %>&rdquo;
+	          <br/>
+	          -<%= @article.quote.author %>
+	      </blockquote>
+			<section id="page_anchor" class="article">
+			  <%= link_to image_tag("get_inspired.png"), "#{get_inspired_path(format: :html)}" %>
+			</section>
+		</div>
+	</div>
+
+</div>
+<% @article.videos.each do |vid| %>
+<div class="video_container" id="<%= vid.hashcode %>">
+		<div id="<%= vid.hashcode %>-video" class="video" data-video="/content/videos/<%= vid.id %>/<%= vid.mp4_file_name %>" ></div>
+	</div>
+<% end %>

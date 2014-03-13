@@ -1,0 +1,11 @@
+<%= f.control_group(:title, :required => true, :class => 'span4', 'data-help' => 'Title for display') %>
+
+<%= f.control_group(:intro, :required => true, :class => 'span4', 'data-help' => 'This is the intro text to show on the article', as: :text_area) %>
+
+<%= f.control_group(:link, :required => true, :class => 'span4', 'data-help' => 'ex: article.com/article') %>
+
+<%= f.control_group(:author, :class => 'span4', 'data-help' => 'ex: Jim Authorson') %>
+
+<%= f.control_group(:published_date, :class => 'span4 datepicker') %>
+
+<%= f.control_group(:publication, :class => 'span4') %>

@@ -1,0 +1,47 @@
+<div class="marquee">
+  <ul id="slideshow">
+    <li data-current="1"><%= link_to(image_tag("growth_marquee.png"), "/growing/index.html") %></li>
+    <li data-current="2"><%= link_to(image_tag("coach_marquee.jpg"), "/coaching/index.html") %></li>
+    <li data-current="3"><%= link_to(image_tag("expectations_marquee.png"), "/setting/index.html") %></li>
+    <li data-current="4"><%= link_to(image_tag("fuel_marquee.jpg"), "/fueling/index.html") %></li>
+  </ul>
+</div>
+<div class="marquee_indicator">
+  <ul id="indicator">
+    <li data-color="#7dc242" data-position="0" id="position_1" class="current"></li>
+    <li data-color="#55beed" data-position="-736" id="position_2" class=""></li>
+    <li data-color="#806629" data-position="-1472" id="position_3" class=""></li>
+    <li data-color="#ef4c23" data-position="-2208" id="position_4" class=""></li>
+  </ul>
+</div>
+<div class="marquee_nav">
+  <div class="button ir" id="right_arrow" data-dir="next">Next</div>
+  <div class="button ir" id="left_arrow" data-dir="prev">Previous</div>
+</div>
+<nav class="clearfix" id="7_sprite">
+<ul>
+  <li class="ir" id="grow"><%= link_to "Grow Our Skills", "/growing/index.html" %></li>
+  <li class="ir" id="fuel"><%= link_to "Fuel Our Associates Careers", "/fueling/index.html" %></li>
+  <li class="ir" id="expectations"><%= link_to "Set clear, high measurable expectations", "/setting/index.html" %></li>
+  <li class="ir" id="coach"><%= link_to "Coach Teams", "/coaching/index.html" %></li>
+  <li class="ir" id="balance"><%= link_to "Balance Leading and Doing", "/balance/index.html" %></li>
+  <li class="ir" id="create"><%= link_to "Create a Great Place to Work", "/creating/index.html" %></li>
+  <li class="ir" id="discover"><%= link_to "Discover More Resources", "/finding.html" %></li>
+</ul>
+</nav>
+<div class="information clearfix">
+  <div class="right rss">
+    <%= image_tag "rss_header.png", id: 'main_rss_header' %>
+    <div id="feed">
+    </div>
+  </div>
+  <div class="left">
+    <h3>Welcome to the M.E. Tablet v2.0</h3>
+    <p>
+      As Epsilon managers, we strive to meet high expectations.
+    </p>
+    <h3>Not sure where to start?</h3>
+    <p>You can choose from a variety of topics that fit your management concerns or answer the questions you may have each day. And, you can find it all here in one easy to use tool.</p>
+    <%= link_to(image_tag("get_inspired.png"), "#{get_inspired_path}.html") %>
+  </div>
+</div>

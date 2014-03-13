@@ -1,0 +1,35 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.all
+ *= require_tree .
+ */
+
+
+/*
+        Easybox v1.2 - Lightweight easy to use lightbox clone for jQuery
+        Based on Slimbox2 by Christophe Beyls <http://www.digitalia.be>
+*/
+#easyOverlay{position:fixed;z-index:9998;left:0;top:0;width:100%;height:100%; background:#000;cursor:pointer}#easyCenter,#easyBottomContainer{position:fixed;left:50%;top:50%;z-index:9999;overflow:hidden;background:#fff}#easyCenter.easyLoading{background:#fff url('/images/desktop/lightbox/loading.gif') no-repeat center}#easyCenter.easyError{background:#fff url('/images/desktop/lightbox/error.png') no-repeat center}#easyContainer,#easyBottom{border:10px solid #fff}#easyContainer img,#easyContainer iframe{border:0}#easyBottom{font-family:Verdana,Arial,Geneva,Helvetica,sans-serif;color:#666;text-align:left;border-top:none}#easyCloseLink{display:block;float:right;width:20px;height:20px;background:transparent url('/images/desktop/lightbox/closebtn.png') no-repeat center;margin:0 0 0 10px;outline:none}#easyNavigation{float:left;width:32px;height:20px;margin:0 10px 0 0}#easyPrevLink{display:block;float:left;width:15px;height:20px;background:transparent url('/images/desktop/lightbox/prevbtn.png') no-repeat center;outline:none}#easyNextLink{display:block;margin:0 0 0 17px;width:15px;height:20px;background:transparent url('/images/desktop/lightbox/nextbtn.png') no-repeat center;outline:none}#easySlideLink{display:block;float:right;width:20px;height:20px;background:transparent url('/images/desktop/lightbox/slidebtn.png') no-repeat center;margin:0 0 0 10px;outline:none}#easySlideLink.disabled{background:transparent url('/images/desktop/lightbox/noslidebtn.png') no-repeat center}#easyCaption,#easyNumber{display:block;margin-right:60px}#easyCaption.nav,#easyNumber.nav{margin-left:42px}#easyCaption{font-size:12px;font-weight:bold;line-height:16px;height:16px;padding-top:2px}#easyNumber{font-size:10px;line-height:10px;height:10px;padding:4px 0 6px}
+#easyCenter { overflow: visible !important; border: 5px solid #ccc; padding: 25px 20px; -webkit-border-radius: 13px; -moz-border-radius: 13px; border-radius: 13px; -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.85); -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.85); box-shadow: 0px 0px 20px rgba(0,0,0,0.85); }
+
+#lightbox                                       { text-align: center; display: none; width: 700px; height: 400px; }
+#lightbox-close                                 { width: 27px; height: 27px; position: absolute; top: 5px; right: 0px; background-image: url('/images/desktop/lightbox/closebtn.png'); }
+#lightbox-content h2                            { font-size: 2em; line-height: 1.2em; margin-bottom: 0.5em; }
+#lightbox-content h3                            { font-size: 1.7em; line-height: 1.2em; margin: 15px 0px; }
+	#lightbox-content h3.no-border                { border-top: none; padding-top: 0px; }
+#lightbox-content a.social-networking-share     { margin-left: 45px; }
+#lightbox-content .subcontent                   { width: 490px; margin: 0px auto; }
+#lightbox-content p                             { font-size: 14px; }
+#lightbox-content p.info                        { font-size: 10px; padding: 1px 0px 0px 18px; line-height: 1em; margin-top: 2em; background: transparent url('/images/desktop/structure/info.png') no-repeat top left; }
+
+.video-720 { width: 700px; height: 472 !important; }
+.flowplayer { height: 100%; }

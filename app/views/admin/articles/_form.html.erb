@@ -1,0 +1,19 @@
+<%= f.control_group(:title, :required => true, :class => 'span4', 'data-help' => 'Title Goes here') %>
+
+<%= f.control_group(:headline, :required => true, :class => 'span6', :help => 'this is the short description that is viewable from the category\'s main page', as: :text_area) %>
+
+<%= f.control_group(:body, :required => true, :class => 'span4', :help => 'this is the short description that is viewable from the category\'s main page', as: :text_area) %>
+
+<%= f.control_group(:image, :required => true, :class => 'span4', :help => 'this is the short description that is viewable from the category\'s main page', as: :file_field) %>
+
+<%= f.control_group(:category_id, :required => true, :class => 'span4') do %>
+  <%= collection_select :article, :category_id, Category.all, :id, :short_name, prompt: true, selected: @object.category_id %>
+<% end %>
+
+<%= f.control_group(:tag_list, class: 'span4', 'data-help' => "separate by commas") %>
+
+<%#= f.control_group("video_ids[]", :class => 'span4') do %>
+  <%#= collection_select :article, "video_ids", Video.all, :id, :information %>
+<%# end %>
+
+<%#= select_tag "article[video_ids][]", options_from_collection_for_select(Video.all, :id, :information) %>

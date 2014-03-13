@@ -1,0 +1,67 @@
+<%= render 'layouts/eight_nav' %>
+
+<div id="breadcrumb" class="get-inspired">
+  <%= link_to "Home", "/categories.html", class: "crumb" %> / <span id="current_page" class="get-inspired">Get Inspired</span>
+</div>
+<div id="inspired_container">
+  <div class="inspired_row clearfix">
+    <div class="inspired inspired_video" data-type="video">
+      Loading Video...
+    </div>
+    <div class="inspired inspired_video" data-type="video">
+			Loading Video...
+    </div>
+    <div class="inspired inspired_video" data-type="video">
+      Loading Video...
+    </div>
+  </div>
+  <div class="inspired_row clearfix">
+    <table>
+      <tr>
+        <td class="inspired quote" data-type="quote">
+          Loading Quote...
+        </td>
+        <td class="inspired quote" data-type="quote">
+          Loading Quote...
+        </td>
+        <td class="inspired quote" data-type="quote">
+          Loading Quote...
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="inspired_row clearfix">
+    <div class="inspired inspired_video" data-type="video">
+      Loading Video...
+    </div>
+    <div class="inspired inspired_video" data-type="video">
+      Loading Video...
+    </div>
+    <div class="inspired inspired_video" data-type="video">
+      Loading Video...
+    </div>
+<!--     <table>
+      <tr>
+        <td class="inspired quote" data-type="quote">
+          Loading Quote...
+        </td>
+        <td class="inspired quote" data-type="quote">
+          Loading Quote...
+        </td>
+        <td class="inspired quote" data-type="quote">
+          Loading Quote...
+        </td>
+      </tr>
+    </table> -->
+  </div>
+</div>
+<div id="indented_off_page">
+	<%= link_to image_tag("refresh.png", id: "video_refresh"), "#" %>
+</div>
+<div id="inspired_refresh" class="centered">
+	<%= link_to(image_tag('more_inspiration.png'), "/get-inspired.html") %>
+</div>
+<div id="lightboxed_videos">
+
+</div>
+<%= render '/shared/quotes' -%>

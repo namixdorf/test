@@ -1,0 +1,13 @@
+<div class="subnav">
+	<%= render(:partial => 'subnav') rescue '' -%>
+</div>
+
+<table class='table table-striped table-hover'>
+<%= render(:partial => 'item_thead') rescue '' -%>
+<tbody>
+	<%= render(:partial => 'item_row', :collection => @items)  unless(@items.blank?) -%>
+	<%= render(:partial => 'empty_set') rescue raw('<td colspan="10"><center><em>No records were found.</em></center></td>') if(@items.blank?) -%>
+</tbody>
+</table>
+
+<%= paginate @items, :theme => 'admin' %>

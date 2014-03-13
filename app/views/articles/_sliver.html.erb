@@ -1,0 +1,8 @@
+<%= link_to "#{category_article_path(article.category, article)}.html" do %>
+	<div class="article <%= article.category.short_name.downcase %>">
+	  <%= image_tag article.thumbnail.url, class: "thumb" %>
+	  <h2><%= article.title %></h2>
+	  <p><%= article.headline.truncate(100) %></p>
+	  <%=image_tag("article_link_arrow.png", class: "arrow") %>
+	</div>
+<% end %>

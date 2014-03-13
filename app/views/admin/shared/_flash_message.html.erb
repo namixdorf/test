@@ -1,0 +1,10 @@
+<%
+flash[:class] ||= flash[:alert].blank? ? 'info' : 'error'
+%>
+
+<div id="flash">
+	<%= content_tag(:div, :class => "alert alert-block alert-#{ flash[:class] }") do %>
+		<a class="close" href="#" data-dismiss="alert">&times;</a>
+		<%= flash[:notice] || flash[:alert] -%>
+	<% end if(flash[:notice] || flash[:alert]) %>
+</div>

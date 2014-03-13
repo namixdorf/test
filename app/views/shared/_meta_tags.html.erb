@@ -1,0 +1,19 @@
+<%
+  meta_title        = yield(:meta_title).blank?        ? META_TITLE               : yeild(:meta_title)
+  meta_description  = yield(:meta_description).blank?  ? META_DESCRIPTION         : yeild(:meta_description)
+  meta_keywords     = yield(:meta_keywords).blank?     ? META_KEYWORDS            : yeild(:meta_keywords)
+  # meta_image        = yield(:meta_image).blank?        ? image_path(META_IMAGE)   : yeild(:meta_image)
+  # 
+  # if(Rails.env.development?)
+  #   meta_image = "http://vs226.blueboxgrid.com:CMSWEBSITE#{image_path(META_IMAGE)}"
+  # end
+%>
+<title><%= meta_title -%></title>
+<%= tag(:meta, { :name => 'description', :content => meta_description }) if meta_description -%>
+<%= tag(:meta, { :name => 'keywords', :content => meta_keywords }) if meta_keywords -%>
+<!-- Facebook Open Graph -->
+<%= tag(:meta, { :property => 'og:title', :content => meta_title }) -%>
+<%= tag(:meta, { :property => 'og:description', :content => meta_description }) if meta_description -%>
+<%#= tag(:meta, { :property => 'og:image', :content => meta_image }) if meta_image -%>
+<%= tag(:meta, { :property => 'og:url', :content => "http://www.CMSWEBSITE.com" }) -%>
+<%= tag(:meta, { :property => 'og:site_name', :content => 'CMSWEBSITE'}) -%>

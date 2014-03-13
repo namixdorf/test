@@ -1,0 +1,9 @@
+<%= f.control_group(:email, :required => true, :class => 'span4', 'data-help' => 'ex: johndoe@example.com') %>
+
+<%= f.control_group(:password, :required => true, :class => 'span4', :help => 'must be at least 6 characters long and match password confirmation') do %>
+		<%= f.password_field(:password, :class => 'span4', 'data-help' => 'must be at least 6 characters long') %> 
+<% end %>
+
+<%= f.control_group(:password_confirmation, :required => true, :class => 'span4') do %>
+	<%= f.password_field(:password_confirmation, :class => 'span4', 'data-help' => 're-type your password') %>
+<% end %>

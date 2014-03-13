@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta name="robots" content="noindex" />
+		<title>Epsilon Manager Table</title>
+		<link rel="shortcut icon" href="/favicon.ico">
+	  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<%= stylesheet_link_tag 'admin/application', :media => "all" -%>
+		
+    <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js' %>
+    <%= javascript_include_tag 'admin/application' -%>
+    
+		<%= csrf_meta_tag %>
+	</head>
+	<body id="<%= @body_id -%>">
+
+		<%= render :partial => '/admin/shared/navbar' -%>
+	
+		<div class="span4 well login">
+			<%= render :partial => '/admin/shared/flash_message' -%>
+			
+			<%= form_for(@object, :url => admin_sessions_path, :html => { :id => 'object-form' }) do |f| %>
+	
+      	<div class='control-group'>
+      		<%= f.label :email, :class => 'control-label' -%>
+      		<div class='controls'>
+          	<%= f.email_field :email, :placeholder => 'Email', :class => 'span4' %>
+      		</div>
+      	</div>
+	
+      	<div class='control-group'>
+      		<%= f.label :password, :class => 'control-label' -%>
+      		<div class='controls'>
+          	<%= f.password_field :password, :class => 'span4' %>
+      		</div>
+      	</div>
+
+      	<button type="submit" class="btn btn-primary">Sign In</button>
+
+      <% end %>
+			
+			
+		</div>
+
+	</body>
+</html>

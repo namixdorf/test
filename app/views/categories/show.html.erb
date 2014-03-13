@@ -1,0 +1,58 @@
+<%= render 'layouts/eight_nav' %>
+<div id="breadcrumb">
+  <%= link_to "Home", "#{categories_path}.html", class: "crumb" %> / <span id="current_page" class="<%= @category.short_name.downcase %>"><%= @category.full_name %></span>
+</div>
+<section id="articles">
+<% @category.articles.each do |article| %>
+	<%= link_to "#{category_article_path(@category, article)}.html", class: 'article_link', format:'html' do %>
+  <div class="article <%= @category.short_name.downcase %>">
+    <%= image_tag article.thumbnail.url, class: "thumb" %>
+    <h2><%= article.title %></h2>
+    <p><%= article.headline.truncate(100) %></p>
+    <%= image_tag("article_link_arrow.png", class: "arrow") %>
+  </div>
+	<% end %>
+<% end %>
+</section>
+<section class="clearfix" id="extra_resources">
+<div class="right_510">
+	<div class="inspired_row clearfix">
+		<%= link_to image_tag("refresh.png", id: "video_refresh"), "#" %>
+	  <div class="inspired inspired_video left_video" data-type="video">
+	    Loading Video...
+	  </div>
+	  <div class="inspired inspired_video" data-type="video">
+	    Loading Video...
+	  </div>
+	  <div class="inspired inspired_video left_video" data-type="video">
+	    Loading Video...
+	  </div>
+	  <div class="inspired inspired_video" data-type="video">
+	    Loading Video...
+	  </div>
+	</div>
+</div>
+<div class="right rss shorter">
+	<div id='rss-header'>
+  	<%= image_tag "rss_header.png" %>
+	</div>
+  <div id="external-related">
+		<div id="mimic_feed">
+			<% @category.external_articles.each do |article| %>
+				<h4><%= article.title %></h4>
+				<p><%= article.body.truncate(120) %> <%= link_to "(Read More)", article.url, target: "_blank" %></p>
+			<% end %>
+		</div>
+		<section id="page_anchor" class="centered">
+		  <%= link_to image_tag("get_inspired.png", id: 'get_inspired_show'), get_inspired_path(format: :html) %>
+		</section>
+  </div>
+</div>
+</section>
+<div id="hidden_videos">
+	<%= @category.videos.to_json %>
+</div>
+
+<div id="lightboxed_videos">
+	
+</div>

@@ -1,0 +1,85 @@
+<%= render 'layouts/eight_nav' %>
+
+<div id="breadcrumb" class="get-inspired">
+  <%= link_to "Home", "/categories.html", class: "crumb" %> / <span id="current_page" class="finding">Discover More Resources</span> 
+</div>
+<div id="notification_bar">
+	* YOU MUST HAVE INVIEW OPEN for INVIEW <span id="white_inview" class="ir">INVIEW</span> links to work
+</div>
+<div id="tabs">
+	<nav id="tab_navigation" class="clearfix">
+		<ul>
+			<li id='growing_tab_image' ><%= link_to 'Growing',  "#growing_tab", 	class: 'ir current_tab', id: 'growing_tab_image'  %></li>
+			<li id='fueling_tab_image' ><%= link_to 'Fueling',  "#fueling_tab", 	class: 'ir', id: 'fueling_tab_image'  %></li>
+			<li id='setting_tab_image' ><%= link_to 'Setting',  "#setting_tab", 	class: 'ir', id: 'setting_tab_image'  %></li>
+			<li id='coaching_tab_image'><%= link_to 'Coaching', "#coaching_tab", class:  'ir', id: 'coaching_tab_image' %></li>
+			<li id='balance_tab_image' ><%= link_to 'Balance',  "#balance_tab", 	class: 'ir', id: 'balance_tab_image'  %></li>
+			<li id='creating_tab_image'><%= link_to 'Creating', "#creating_tab", class:  'ir', id: 'creating_tab_image' %></li>
+		</ul>
+	</nav>
+	<% @categories.each do |category| %>
+		<div id="<%= category.short_name.downcase %>_tab" class="clearfix <%= category.short_name.downcase %> tab_content">
+			<div class="left_tab">
+				<h3>Courses</h3>
+				<p>To access courses, go to Inview ><br/> Career &amp; Learning > Learn</p>
+				<div class="gray_text">
+				<% if category.classroom_courses.count > 0 %>
+					<h4>Classroom</h4>
+					<ul>
+					<% category.classroom_courses.each do |classroom| %>
+						<li><%= classroom.title %></li>
+					<% end %>
+					</ul>
+				<% end %>
+				<% if category.online_courses.count > 0 %>
+					<h4>Online</h4>
+					<ul>
+					<% category.online_courses.each do |course| %>
+						<li><%= course.title %></li>
+					<% end %>
+					</ul>
+				<% end %>
+				</div>
+			</div>
+			<div class="center_tab">
+				<h3>Tools</h3>
+				<div class="gray_text">
+					<ul>
+					<% category.tools.each do |tool| %>
+						<li><%= link_to tool.title, tool.url, format:'html', target: "_blank" %> <span id="<%= category.short_name.downcase %>_inview" class="ir">INVIEW</span></li>
+					<% end %>
+					</ul>
+				</div>
+			</div>
+			<div class="right_tab">
+				<h3>Independent Learning</h3>
+				<div class="gray_text">
+					<% if category.inview_articles.count > 0 %>
+						<h4>Inview Articles</h4>
+						<ul>
+							<% category.inview_articles.each do |article| %>
+								<li><%= link_to article.title, article.url, format:'html', target: "_blank" %> <span id="<%= category.short_name.downcase %>_inview" class="ir">INVIEW</span></li>
+							<% end %>
+						</ul>
+					<% end %>
+					<% if category.books.count > 0 %>
+						<h4>Books</h4>
+						<ul>
+							<% category.books.each do |book| %>
+								<li><%= link_to book.title, book.url, format:'html', target: "_blank" %></li>
+							<% end %>
+						</ul>
+					<% end %>
+					<% if category.external_videos.count > 0 %>
+						<h4>External Videos</h4>
+						<ul>
+							<% category.external_videos.each do |video| %>
+								<li><%= link_to video.title, video.url, format:'html', target: "_blank" %></li>
+							<% end %>
+						</ul>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>

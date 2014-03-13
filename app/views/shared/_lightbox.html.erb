@@ -1,0 +1,9 @@
+<div id="lightbox">
+  <a id="lightbox-close" class="ir">Close</a>
+  <div id="lightbox-content">
+    <%- if flash[:lightbox] -%>
+      <%= raw(flash[:lightbox]) -%>
+      <div class="clearfix"></div>
+    <%- end -%>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<%
+object ||= @object
+%>
+<%= content_tag(:div, :id => 'error-messages', 'data-role' => 'collapsible', 'data-theme' => 'a') do %>
+  <h2><%= pluralize(object.errors.size, 'Error') -%></h2>
+  <%= flash[:notice] || flash[:alert] -%>
+  <%= content_tag(:ul, :class => 'errors-list', 'data-role' => "listview") do %>
+    <% object.errors.full_messages.each do |msg| %>
+      <%= content_tag(:li, msg) -%>
+    <% end %>
+  <% end %>
+<% end unless object.blank? || object.errors.empty? %>

@@ -1,0 +1,13 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/admin">Epsilon Manager Tablet</a>
+			<%= content_tag(:div, :class => "nav-collapse") do %>
+				<p class='navbar-text pull-right'>Welcome back, <%= link_to(@user.email, [:edit, :admin, @user]) -%></a></p>
+      <% end if(logged_in?) %>
+    </div>
+	</div>
+</div>

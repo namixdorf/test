@@ -1,0 +1,14 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Development: Cohesive Creative & Code
+  Site: www.cohesive.cc
+  Twitter: @cohesivecc
+  Location: Iowa
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery
+  Software: Ruby on Rails

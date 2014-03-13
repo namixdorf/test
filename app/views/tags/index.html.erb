@@ -1,0 +1,114 @@
+<%= render 'layouts/eight_nav' %>
+<div id="breadcrumb">
+  <%= link_to "Home", "/categories.html", class: "crumb"%> / <span id="current_page"><%= @tag.to_s %></span>
+</div>
+<div id="tag_index">
+	<% if @articles.count > 0 %>
+		<h1>Articles</h1>
+	<% end %>
+	<% @articles.each do |article| %>
+		<%= render '/articles/sliver', article: article.taggable %>
+	<% end %>
+  <% if @videos.count > 0 %>
+    <h1>Videos</h1>
+  <% end %>
+  <% @videos.each_slice(3) do |group| %>
+		<div class="tag_quote_collection clearfix">
+      <table class="tag_video_collection">
+        <tr class="tag_video_row">
+          <%= render partial: '/videos/one_video', collection: group, as: :video %>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+	<% if @books.count > 0 %>
+	<div class="fifty_percent clearfix">
+		<h1>Books</h1>
+		<ul>
+			<% @books.each do |book| %>
+			<li><%= link_to book.taggable.title, book.taggable.url %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<% if @classrooms.count > 0 %>
+		<div class="fifty_percent clearfix">
+			<h1>Classroom Courses</h1>
+			<ul>
+				<% @classrooms.each do |classroom| %>
+				<li><%= classroom.taggable.title %> <span id="<%= classroom.taggable.category.short_name.downcase %>_inview" class="ir">INVIEW</span></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<% if @online_courses.count > 0 %>
+		<div class="fifty_percent clearfix">
+			<h1>Online Courses</h1>
+			<ul>
+				<% @online_courses.each do |classroom| %>
+				<li><%= classroom.taggable.title %> <span id="<%= classroom.taggable.category.short_name.downcase %>_inview" class="ir">INVIEW</span></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<% if @external_videos.count > 0 %>
+		<div class="fifty_percent clearfix">
+			<h1>External Videos</h1>
+			<ul>
+				<% @external_videos.each do |video| %>
+					<li><%= link_to video.taggable.title, video.taggable.url %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<% if @inview_articles.count > 0 %>
+		<div class="fifty_percent clearfix">
+			<h1>INVIEW Articles</h1>
+			<ul>
+				<% @inview_articles.each do |article| %>
+					<li><%= link_to article.taggable.title, article.taggable.url %> <span id="<%= article.taggable.category.short_name.downcase %>_inview" class="ir">INVIEW</span></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<% if @tools.count > 0 %>
+		<div class="fifty_percent clearfix">
+			<h1>Tools</h1>
+			<ul>
+				<% @tools.each do |tool| %>
+				<li><%= link_to tool.taggable.title, tool.taggable.url %> <span id="<%= tool.taggable.category.short_name.downcase %>_inview" class="ir">INVIEW</span></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<% if @external_articles.count > 0 %>
+		<div class="fifty_percent clearfix">
+			<h1>External Articles</h1>
+			<ul>
+				<% @external_articles.each do |article| %>
+				<li><%= link_to article.taggable.title, article.taggable.url %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<% if @quotes.count > 0 %>
+	<div class="tag_quote_collection">
+		<h1>Quotes</h1>
+	</div>
+	<% end %>
+	<% @quotes.each_slice(3) do |group| %>
+		<div class="tag_quote_collection clearfix">
+			<table class="tag_quote_collection">
+				<tr class="tag_quote_row">
+					<%= render partial: '/quotes/one_quote', collection: group, as: :quote %>
+				</tr>
+			</table>
+		</div>
+	<% end %>
+</div>
+<% @videos.each do |vid| %>
+	<div class="video_container" id="<%= vid.taggable.hashcode %>">
+		<div id="<%= vid.taggable.hashcode %>-video" class="video" data-video="/content/videos/<%= vid.taggable.id %>/<%= vid.taggable.mp4_file_name %>" ></div>
+	</div>
+
+<% end %>
